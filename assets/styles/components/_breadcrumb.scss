@@ -1,0 +1,33 @@
+ul.breadcrumb-nav{
+  list-style: none;
+  list-style-position: outside;
+  padding-left: 0;
+  li{
+    display: inline;
+    
+    a{
+      text-decoration: none;
+      color: $meli-text-color;
+      &:hover{
+        color: $meli-text-color-hover;
+      }
+    }
+  }
+  li+li{
+    margin-left: 25px;
+    position: relative;
+  
+    &:before{
+      content: ' ';
+      width: 7px;
+      height: 7px;
+      border-right: 2px solid $meli-text-color;
+      border-bottom: 2px solid $meli-text-color;
+      position: absolute;
+      left: -18px;
+      top: 50%;
+      transform: translateY(-50%) rotate(-45deg);
+      pointer-events: none;
+    }
+  }
+}

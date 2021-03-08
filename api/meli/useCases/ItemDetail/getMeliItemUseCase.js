@@ -10,7 +10,6 @@ export default async (id) => {
   const description = getDescription(descriptionUrl)
 
   return Promise.all([item, description]).then((values) => {
-    console.log(values)
     return {
       ...values[0],
       description: values[1],

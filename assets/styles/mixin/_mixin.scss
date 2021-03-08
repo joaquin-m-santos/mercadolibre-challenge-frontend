@@ -1,0 +1,16 @@
+
+@mixin meli-anchor{
+  a{
+    text-decoration: none;
+    color: $meli-text-color;
+    &:hover{
+      color: $meli-text-color-hover;
+    }
+    &:-webkit-any-link:active {
+      color: $meli-text-color;
+    }
+    &:focus{
+      outline: none;
+    }
+  }
+}

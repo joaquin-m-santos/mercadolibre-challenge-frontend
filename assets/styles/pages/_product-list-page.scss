@@ -1,0 +1,7 @@
+.product-list-page {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: -20px;
+  background-color: white;
+  @include meli-anchor;
+}

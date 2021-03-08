@@ -1,0 +1,30 @@
+$meli-yellow: #fff159;
+$meli-background: #ebebee;
+$meli-text-color: #1b1b1b;
+$meli-text-color-hover: #3f3f3f;
+$header-md: 50px;
+
+@import 'normalize.css';
+@import './mixin/mixin';
+@import './components/_spinner.scss';
+@import './layout/_main.scss';
+@import './layout/_header.scss';
+@import './common/_button.scss';
+@import './components/_breadcrumb.scss';
+@import './components/_product-card.scss';
+@import './pages/_product-list-page.scss';
+@import './pages/_product-detail-page.scss';
+@import './meli-icons.css';
+
+* {
+  font-family: 'Roboto', sans-serif;
+  box-sizing: border-box;
+}
+[class*='icon-'] {
+  color: $meli-text-color;
+}
+
+.img--fluid {
+  max-width: 100%;
+  height: auto;
+}
