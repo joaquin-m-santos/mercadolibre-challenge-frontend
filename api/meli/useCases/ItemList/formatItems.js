@@ -1,15 +1,7 @@
-function ExceptionNoItemsReturn() {
-  this.status = 500
-  this.message = 'No se han encontrado resultados'
-  this.name = 'ExceptionNoItemsReturn'
-}
-
 export default (results) => {
-  if (results.length == 0) {
-    throw new ExceptionNoItemsReturn()
-  }
+  let items = []
 
-  let items = results.map((element) => {
+  items = results.map((element) => {
     return {
       id: element.id,
       title: element.title,

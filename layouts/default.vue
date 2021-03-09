@@ -12,8 +12,9 @@
         <search-bar></search-bar>
       </nav>
     </header>
+    <bread-crumb :crumbs="categories"></bread-crumb>
     <main>
-      <div class="container">
+      <div class="container main-container">
         <Nuxt />
       </div>
     </main>
@@ -21,9 +22,14 @@
 </template>
 
 <script>
+import { mapState } from 'vuex'
 import SearchBar from '../components/SearchBar.vue'
+import Breadcrumb from '../components/Breadcrumb.vue'
 
 export default {
-  components: { 'search-bar': SearchBar },
+  components: { 'search-bar': SearchBar, 'bread-crumb': Breadcrumb },
+  computed: {
+    ...mapState(['categories']),
+  },
 }
 </script>

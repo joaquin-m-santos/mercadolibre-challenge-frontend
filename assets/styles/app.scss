@@ -3,6 +3,7 @@ $meli-background: #ebebee;
 $meli-text-color: #1b1b1b;
 $meli-text-color-hover: #3f3f3f;
 $header-md: 50px;
+$padding: 20px;
 
 @import 'normalize.css';
 @import './mixin/mixin';
@@ -12,8 +13,10 @@ $header-md: 50px;
 @import './common/_button.scss';
 @import './components/_breadcrumb.scss';
 @import './components/_product-card.scss';
+@import './components/_no-items-found.scss';
 @import './pages/_product-list-page.scss';
 @import './pages/_product-detail-page.scss';
+@import './pages/_error-page.scss';
 @import './meli-icons.css';
 
 * {

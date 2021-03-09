@@ -2,24 +2,24 @@
   <div class="product-list-page">
     <product-card v-for="item in products" :key="item.id" :item="item">
     </product-card>
+    <no-items-found v-if="products.length == 0" />
   </div>
 </template>
 <script>
 import { mapGetters, mapState, mapActions } from 'vuex'
 import ProductCard from '../../components/ProductCard'
+import NoItemsFound from '../../components/NoItemsFound'
 export default {
-  components: { 'product-card': ProductCard },
+  components: { 'product-card': ProductCard, 'no-items-found': NoItemsFound },
   data() {
     return {
-      categories: [],
       apiItems: 'http://localhost:3000/api/items?q=value',
     }
   },
 
   async fetch({ store, query }) {
-    console.log(query.search)
     const search = query.search
-    if (search) {
+    if (typeof search === 'string') {
       await store.dispatch('fetchProducts', search)
     }
   },
@@ -39,11 +39,8 @@ export default {
   },
 
   computed: {
-    ...mapState(['products']),
+    ...mapState(['products', 'categories']),
     ...mapGetters(['productsCount']),
-    productsCount() {
-      return this.products.length
-    },
   },
 
   watchQuery(newQuery, oldQuery) {

@@ -20,8 +20,9 @@ export const mutations = {
       state.loading = val
     }
   },
-  setList(state, list) {
-    state.products = list
+  setList(state, { items, categories }) {
+    state.products = items
+    state.categories = categories
   },
   setProduct(state, product) {
     state.product = product
@@ -35,7 +36,10 @@ export const actions = {
     return this.$axios
       .get(api)
       .then((val) => {
-        commit('setList', val.data.items, val.data.categories)
+        commit('setList', {
+          items: val.data.items,
+          categories: val.data.categories,
+        })
       })
       .catch((error) => {
         console.log(error)

@@ -5,7 +5,7 @@
       type="text"
       placeholder="Buscar productos, marcas y más..."
     />
-    <button class="nav__button" @click.prevent="changeQueryString">
+    <button class="nav__button" @click.prevent="pushRoute">
       <i class="icon-search"></i>
     </button>
   </form>
@@ -22,15 +22,29 @@ export default {
     }
   },
 
-  mounted() {
-    if (typeof this.$route.query.search === 'string') {
-      this.query = this.$route.query.search
-    }
+  watch: {
+    '$route.query.search'() {
+      this.setDataByQueryString()
+    },
   },
+
+  mounted() {
+    this.setDataByQueryString()
+  },
+
   methods: {
-    ...mapActions(['fetchProducts']),
-    changeQueryString() {
-      this.$router.push({ path: '/items', query: { search: this.query } })
+    ...mapActions(['fetchProducts', 'pushRoute']),
+    pushRoute() {
+      this.$router.push({
+        path: '/items',
+        query: { search: encodeURI(this.query) },
+      })
+    },
+    setDataByQueryString() {
+      if (typeof this.$route.query.search === 'string') {
+        if (this.query !== this.$route.query.search)
+          this.query = decodeURI(this.$route.query.search)
+      }
     },
   },
 }
