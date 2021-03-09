@@ -1,20 +1,34 @@
-# mercadolibre-challenge-frontend
+# Mercado Libre - Frontend Challenge
 
-## Build Setup
+En este repositorio se comparte la resolución del challenge para puesto frontend en Mercado Libre.
 
-```bash
-# install dependencies
-$ npm install
+## Sobre el proyecto
 
-# serve with hot reload at localhost:3000
-$ npm run dev
+Joaquín Santos
+Versión: 1.0.0
+Fecha 10/03/2021
 
-# build for production and launch server
-$ npm run build
-$ npm run start
+## Tecnologías
 
-# generate static project
-$ npm run generate
+El proyecto fue hecho con el stack Nuxt js, sirviendo Next y Express para las funcionalidades API y VUE js para el front end.
+
+### Pre requisitos
+
+Node v12.
+
+## Empezando
+
+Primero descargue o clone el proyecto en su computadora y luego siga las instrucciones.
+
+Para instalar en ambiente de desarrollo abra la consola o terminal y dirijase a donde descargó el proyecto. Luego ejecute el comando
+
+```
+npm run dev
 ```
 
-For detailed explanation on how things work, check out [Nuxt.js docs](https://nuxtjs.org).
+Para correr el sistema en ambiente de producción ejecute
+
+```
+npm run build
+npm run start
+```
