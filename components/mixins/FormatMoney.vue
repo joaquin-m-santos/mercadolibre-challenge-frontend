@@ -1,15 +1,22 @@
 <script>
 export default {
   filters: {
-    formatMoney: function (price) {
+    formatMoney: (price, withDecimals = true) => {
       let finalAmount = price.amount
-      if (price.decimals === 0) {
-        finalAmount = price.amount + price.decimals / 100
+
+      const hasDecimals = price.decimal === 0 && withDecimals
+
+      if (hasDecimals) {
+        finalAmount = price.amount + price.decimal / 100
       }
-      return new Intl.NumberFormat('es-AR', {
+
+      const options = {
         style: 'currency',
         currency: price.currency,
-      }).format(finalAmount)
+        minimumFractionDigits: hasDecimals ? 2 : 0,
+        useGrouping: true,
+      }
+      return new Intl.NumberFormat('es-AR', options).format(finalAmount)
     },
   },
 }

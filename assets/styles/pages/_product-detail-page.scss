@@ -23,6 +23,23 @@
     }
   }
 
+  .product-price__total {
+    display: flex;
+  }
+
+  .product-price__integer {
+    font-size: 2.5rem;
+    line-height: 1.25;
+  }
+
+  .product-price__decimal {
+    font-size: 1rem;
+    font-weight: 600;
+    margin-top: 0.5rem;
+    height: 2.5rem;
+    vertical-align: top;
+  }
+
   @media screen and (min-width: 768px) {
     .product-image {
       width: 50%;

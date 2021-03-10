@@ -11,7 +11,12 @@
         </span>
       </p>
       <h2>{{ product.title }}</h2>
-      <h1>{{ product.price | formatMoney }}</h1>
+      <div class="product-price__total">
+        <span class="product-price__integer">{{
+          product.price | formatMoney(false)
+        }}</span>
+        <span class="product-price__decimal">{{ formatDecimals() }}</span>
+      </div>
       <button class="meli-btn meli-btn--buy">Comprar</button>
     </div>
     <div class="product-description">
@@ -61,7 +66,12 @@ export default {
 
   methods: {
     getProduct() {},
-
+    formatDecimals() {
+      return this.product.price.decimal.toLocaleString('es-AR', {
+        minimumIntegerDigits: 2,
+        useGrouping: false,
+      })
+    },
     translateCondition(condition) {
       let value = ''
       switch (condition) {
