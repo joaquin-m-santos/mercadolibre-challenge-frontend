@@ -1,5 +1,5 @@
 <template>
-  <div class="container">
+  <div class="container home-page-container">
     <picture>
       <source
         media="(min-width: 768px)"
@@ -33,5 +33,8 @@ export default {
     }
   },
   computed: {},
+  mounted() {
+    this.$store.commit('setCategories', [])
+  },
 }
 </script>

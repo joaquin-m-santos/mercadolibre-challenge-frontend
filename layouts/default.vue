@@ -3,20 +3,20 @@
     <header>
       <nav>
         <div class="nav__logo">
-          <img
-            src="~/assets/images/logo.png"
-            class="img--fluid"
-            alt="logo mercado libre"
-          />
+          <nuxt-link to="/">
+            <img
+              src="~/assets/images/logo.png"
+              class="img--fluid"
+              alt="logo mercado libre"
+            />
+          </nuxt-link>
         </div>
         <search-bar></search-bar>
       </nav>
     </header>
     <bread-crumb :crumbs="categories"></bread-crumb>
     <main>
-      <div class="container main-container">
-        <Nuxt />
-      </div>
+      <Nuxt />
     </main>
   </div>
 </template>

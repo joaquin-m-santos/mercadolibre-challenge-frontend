@@ -24,8 +24,8 @@ export const mutations = {
     state.products = items
     state.categories = categories
   },
-  setProduct(state, product) {
-    state.product = product
+  setCategories(state, categories) {
+    state.categories = categories
   },
 }
 export const actions = {
@@ -40,9 +40,6 @@ export const actions = {
           items: val.data.items,
           categories: val.data.categories,
         })
-      })
-      .catch((error) => {
-        console.log(error)
       })
       .finally(() => {
         commit('setLoading', false)

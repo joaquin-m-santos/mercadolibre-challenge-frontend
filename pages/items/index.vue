@@ -1,8 +1,10 @@
 <template>
-  <div class="product-list-page">
-    <product-card v-for="item in products" :key="item.id" :item="item">
-    </product-card>
-    <no-items-found v-if="products.length == 0" />
+  <div class="container main-container">
+    <div class="product-list-page">
+      <product-card v-for="item in products" :key="item.id" :item="item">
+      </product-card>
+      <no-items-found v-if="products.length == 0" />
+    </div>
   </div>
 </template>
 <script>

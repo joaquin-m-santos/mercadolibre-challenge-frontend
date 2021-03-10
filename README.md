@@ -10,7 +10,7 @@ Fecha 10/03/2021
 
 ## Tecnologías
 
-El proyecto fue hecho con el stack Nuxt js, sirviendo Next y Express para las funcionalidades API y VUE js para el front end.
+La aplicación fue realizada con el stack Nuxt js, sirviendo Next y Express para las funcionalidades backend API y VUE js para el frontend.
 
 ### Pre requisitos
 
@@ -38,3 +38,12 @@ Si desea hacerlo en ambiente de desarrollo
 ```
 npm run dev
 ```
+
+### Acerca de la aplicación
+
+En esta sección se describirá la organización de la aplicación
+
+## Frontend
+
+- El frontend esta dividido entre componentes en la carpeta /components, y páginas en la carpeta /poages
+- Para la aplicación de estilos se utilizó SCSS

@@ -8,8 +8,9 @@ import formatPrice from '../../helpers/formatPrice.js'
 import axios from 'axios'
 import { apiCategory } from '../../helpers/endpoints.js'
 import formatCategories from '../../helpers/formatCategories.js'
+import getDescriptionById from './getDescriptionById.js'
 
-export default async (itemUrl) => {
+export default async (itemUrl, descriptionUrl) => {
   const data = await axios.get(itemUrl).then((response) => {
     if (response.data.length == 0) {
       throw new ExceptionNoItemsReturn()
@@ -21,12 +22,12 @@ export default async (itemUrl) => {
   const categories = await axios.get(url).then((response) => {
     return formatCategories(response.data)
   })
+  let description = ''
+  if (data.descriptions.length > 0) {
+    description = await getDescriptionById(descriptionUrl)
+  }
 
   return {
-    author: {
-      name: 'Joaquín',
-      lastname: 'Santos',
-    },
     item: {
       id: data.id,
       title: data.title,
@@ -37,5 +38,6 @@ export default async (itemUrl) => {
       sold_quantity: data.sold_quantity,
       categories: categories,
     },
+    description: description,
   }
 }

@@ -1,27 +1,29 @@
 <template>
-  <div class="product-detail-page">
-    <div class="product-image">
-      <img :src="product.picture" :alt="'Imagen ' + product.title" />
-    </div>
-    <div class="product-content">
-      <p class="product-epigraph">
-        {{ product.condition | translateCondition }}
-        <span v-if="product.sold_quantity > 0">
-          - {{ product.sold_quantity }} vendidos
-        </span>
-      </p>
-      <h2>{{ product.title }}</h2>
-      <div class="product-price__total">
-        <span class="product-price__integer">{{
-          product.price | formatMoney(false)
-        }}</span>
-        <span class="product-price__decimal">{{ formatDecimals() }}</span>
+  <div class="container main-container">
+    <div class="product-detail-page">
+      <div class="product-image">
+        <img :src="product.picture" :alt="'Imagen ' + product.title" />
       </div>
-      <button class="meli-btn meli-btn--buy">Comprar</button>
-    </div>
-    <div class="product-description">
-      <h2>Descripción del producto</h2>
-      <p>{{ description }}</p>
+      <div class="product-content">
+        <p class="product-epigraph">
+          {{ product.condition | translateCondition }}
+          <span v-if="product.sold_quantity > 0">
+            - {{ product.sold_quantity }} vendidos
+          </span>
+        </p>
+        <h2>{{ product.title }}</h2>
+        <div class="product-price__total">
+          <span class="product-price__integer">{{
+            product.price | formatMoney(false)
+          }}</span>
+          <span class="product-price__decimal">{{ formatDecimals() }}</span>
+        </div>
+        <button class="meli-btn meli-btn--buy">Comprar</button>
+      </div>
+      <div class="product-description">
+        <h2>Descripción del producto</h2>
+        <p>{{ description }}</p>
+      </div>
     </div>
   </div>
 </template>
@@ -63,15 +65,32 @@ export default {
       error: {},
     }
   },
+  head() {
+    return {
+      title: 'MercadoLibre:' + this.product.title,
+      meta: [
+        {
+          hid: 'description',
+          name: 'description',
+          content:
+            'Comprá en Mercado Libre en cuotas sin tarjeta Activá Mercado Crédito gratis. y 100% Online Activá Mercado Crédito y usalo para comprar en cuotas fijas en Mercado Libre Pagá en Cuotas con DNI Solo con DNI Sin bancos ni filas 100% Online Pagá en Mercado Libre',
+        },
+      ],
+    }
+  },
+
+  mounted() {
+    this.$store.commit('setCategories', this.product.categories)
+  },
 
   methods: {
-    getProduct() {},
     formatDecimals() {
       return this.product.price.decimal.toLocaleString('es-AR', {
         minimumIntegerDigits: 2,
         useGrouping: false,
       })
     },
+
     translateCondition(condition) {
       let value = ''
       switch (condition) {
