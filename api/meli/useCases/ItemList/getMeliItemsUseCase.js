@@ -15,10 +15,10 @@ export default (queryValue) => {
       return filter.id === 'category'
     })
 
-    const categoriesArray = []
+    let categoriesArray = []
 
     if (filter) {
-      const categoriesArray = formatCategories(filter.values[0])
+      categoriesArray = formatCategories(filter.values[0])
     }
 
     const result = {

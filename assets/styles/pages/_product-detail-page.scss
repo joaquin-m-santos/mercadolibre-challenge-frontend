@@ -1,8 +1,6 @@
 .product-detail-page {
   display: flex;
   flex-wrap: wrap;
-  margin-right: -20px;
-  margin-left: -20px;
   @include meli-anchor;
 
   .product-image {
@@ -20,6 +18,9 @@
   .product-description {
     width: 100%;
     padding: 0 20px;
+    p {
+      line-height: 125%;
+    }
   }
 
   @media screen and (min-width: 768px) {

@@ -35,10 +35,12 @@ export default {
   methods: {
     ...mapActions(['fetchProducts', 'pushRoute']),
     pushRoute() {
-      this.$router.push({
-        path: '/items',
-        query: { search: encodeURI(this.query) },
-      })
+      if (this.query.trim().length > 0) {
+        this.$router.push({
+          path: '/items',
+          query: { search: encodeURI(this.query) },
+        })
+      }
     },
     setDataByQueryString() {
       if (typeof this.$route.query.search === 'string') {
