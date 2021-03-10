@@ -24,12 +24,17 @@ Para instalar abra la consola o terminal y dirijase a donde descargó el proyect
 
 ```
 npm install
-npm run dev
 ```
 
-Para correr el sistema en ambiente de producción ejecute
+Para ejecutar el sistema en ambiente de producción ejecute
 
 ```
 npm run build
 npm run start
+```
+
+Si desea hacerlo en ambiente de desarrollo
+
+```
+npm run dev
 ```
