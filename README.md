@@ -20,9 +20,10 @@ Node v12.
 
 Primero descargue o clone el proyecto en su computadora y luego siga las instrucciones.
 
-Para instalar en ambiente de desarrollo abra la consola o terminal y dirijase a donde descargó el proyecto. Luego ejecute el comando
+Para instalar abra la consola o terminal y dirijase a donde descargó el proyecto. Luego ejecute el comando
 
 ```
+npm install
 npm run dev
 ```
 
