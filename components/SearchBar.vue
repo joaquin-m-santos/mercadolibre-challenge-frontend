@@ -1,14 +1,14 @@
 <template>
-  <form>
+  <div class="form">
     <input
       v-model="query"
       type="text"
       placeholder="Buscar productos, marcas y más..."
     />
-    <button class="nav__button" @click.prevent="pushRoute">
+    <button class="nav__button" @click.prevent="pushRoute" aria-label="Buscar">
       <i class="icon-search"></i>
     </button>
-  </form>
+  </div>
 </template>
 
 <script>

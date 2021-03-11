@@ -18,7 +18,9 @@
           }}</span>
           <span class="product-price__decimal">{{ formatDecimals() }}</span>
         </div>
-        <button class="meli-btn meli-btn--buy">Comprar</button>
+        <button class="meli-btn meli-btn--buy" aria-label="Comprar">
+          Comprar
+        </button>
       </div>
       <div class="product-description">
         <h2>Descripción del producto</h2>

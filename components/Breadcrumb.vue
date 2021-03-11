@@ -4,6 +4,7 @@
       <li v-for="(crumb, index) of crumbs" :key="index">
         <nuxt-link
           :to="{ path: '/items', query: { search: encodeURI(crumb) } }"
+          :aria-label="'Ver categoria: ' + crumb"
           >{{ crumb }}</nuxt-link
         >
       </li>

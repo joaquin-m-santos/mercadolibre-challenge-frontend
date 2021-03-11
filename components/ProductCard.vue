@@ -1,5 +1,9 @@
 <template>
-  <nuxt-link :to="'/items/' + item.id" class="product-card">
+  <nuxt-link
+    :to="'/items/' + item.id"
+    class="product-card"
+    :aria-label="'Ir a detalle de producto: ' + item.title"
+  >
     <div class="product-card__img-wrapper">
       <div class="product-card__img-wrapper-zoom">
         <img :src="item.picture" alt="imagen" class="img--fluid" />

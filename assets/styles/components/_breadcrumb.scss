@@ -2,12 +2,15 @@
   background-color: transparent;
   width: 100%;
   align-self: flex-start;
+  overflow: hidden;
   ul {
     list-style: none;
     list-style-position: outside;
     padding-left: 0;
     width: 100%;
     margin-bottom: 5px;
+    display: flex;
+    flex-wrap: wrap;
     li {
       display: inline;
 
