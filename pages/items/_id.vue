@@ -22,7 +22,7 @@
           Comprar
         </button>
       </div>
-      <div class="product-description" v-if="description">
+      <div v-if="description" class="product-description">
         <h2>Descripción del producto</h2>
         <p>{{ description }}</p>
       </div>
