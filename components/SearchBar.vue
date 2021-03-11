@@ -4,8 +4,9 @@
       v-model="query"
       type="text"
       placeholder="Buscar productos, marcas y más..."
+      @keyup.enter="pushRoute"
     />
-    <button class="nav__button" @click.prevent="pushRoute" aria-label="Buscar">
+    <button class="nav__button" aria-label="Buscar" @click.prevent="pushRoute">
       <i class="icon-search"></i>
     </button>
   </div>
@@ -18,13 +19,18 @@ export default {
   name: 'SearchBar',
   data() {
     return {
-      query: this.searchQuery,
+      query: this.searchQuery || '',
     }
   },
 
   watch: {
     '$route.query.search'() {
       this.setDataByQueryString()
+    },
+    $route() {
+      if (this.$route.name === 'index') {
+        this.query = ''
+      }
     },
   },
 
